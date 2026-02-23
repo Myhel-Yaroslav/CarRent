@@ -1,3 +1,4 @@
+<!-- Шаблон сайту -->
 <!DOCTYPE html>
 <html lang="uk">
 <head>

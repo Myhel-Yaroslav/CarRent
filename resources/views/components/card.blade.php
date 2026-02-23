@@ -1,6 +1,6 @@
 @props(['id', 'brand', 'model', 'year'])
 
-// Компонент для відображення картки автомобіля у каталозі
+<!-- Відображення карточки автомобіля -->
 
 <div class="card h-100 shadow-sm border-0">
     <div class="card-body text-center">

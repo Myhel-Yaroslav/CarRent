@@ -14,10 +14,12 @@ class CarController extends Controller
     ];
 
     public function index()
+    // Показати список автомобілів
     {
         return view('index', ['cars' => $this->cars]);
     }
 
+    // Показати деталі конкретного автомобіля
     public function show($id)
     {
         if (isset($this->cars[$id])) {

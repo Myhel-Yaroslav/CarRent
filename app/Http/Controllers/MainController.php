@@ -8,7 +8,7 @@ class MainController extends Controller
 {
     public function index(): View
     {
-        // Передаємо дані в шаблон
+        // Тестові Дані
         $cars = [
             1 => ['brand' => 'Toyota', 'model' => 'Camry', 'year' => 2022],
             2 => ['brand' => 'BMW', 'model' => 'X5', 'year' => 2021],
