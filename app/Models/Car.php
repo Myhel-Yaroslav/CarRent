@@ -8,14 +8,14 @@ class Car extends Model
 {
     protected $table = 'car';
 
-    // Первинний ключ
     protected $primaryKey = 'NumberPlate';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    // Відключення мітки часу, бо я використовував стару БД
+    // Вимикання полів created_at та updated_at
     public $timestamps = false;
 
+    // Дозвіл на заповнення полів в БД
     protected $fillable = [
         'NumberPlate', 
         'ModelID', 
