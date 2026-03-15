@@ -28,7 +28,7 @@ class CarController extends Controller
 // Зберігання нового автомобіля в базі даних
     public function store(Request $request) {
         $validated = $request->validate([
-            'NumberPlate' => 'required|unique:car,NumberPlate|max:15',
+            'NumberPlate' => 'required|unique:car,NumberPlate|max:8',
             'ModelID'     => 'required|integer',
             'Year'        => 'required|integer|min:1900|max:2026',
             'PricePerDay' => 'required|numeric|min:0.01',

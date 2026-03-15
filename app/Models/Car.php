@@ -7,21 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     protected $table = 'car';
-
     protected $primaryKey = 'NumberPlate';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    // Вимикання полів created_at та updated_at
-    public $timestamps = false;
+    protected $fillable = ['NumberPlate', 'ModelID', 'Year', 'PricePerDay', 'Status', 'Conditionn'];
 
-    // Дозвіл на заповнення полів в БД
-    protected $fillable = [
-        'NumberPlate', 
-        'ModelID', 
-        'Year', 
-        'Conditionn', 
-        'Status', 
-        'PricePerDay'
-    ];
+    // Зв'язок з таблицею моделей
+    public function details()
+    {
+        return $this->belongsTo(CarModel::class, 'ModelID', 'ModelID');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'NumberPlate';
+    }
 }
