@@ -6,25 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('car', function (Blueprint $table) {
-            $table->id();
-            $table->string('brand');
-            $table->string('model');
-            $table->integer('year');
-            $table->timestamps();
-        });
+        // Перевіряємо, чи таблиця вже існує
+        if (!Schema::hasTable('car')) {
+            Schema::create('car', function (Blueprint $table) {
+                // Використовуйте структуру, яка відповідає вашій базі
+                $table->string('NumberPlate')->primary(); 
+                $table->integer('ModelID');
+                $table->integer('Year');
+                $table->decimal('PricePerDay', 10, 2);
+                $table->string('Status', 30);
+                $table->string('Conditionn', 50);
+                $table->timestamps();
+            });
+        }
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('car');
+        // Schema::dropIfExists('car'); // Краще закоментувати, щоб випадково не видалити дані
     }
 };

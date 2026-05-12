@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CarController extends Controller
 {
-// Вивід список усіх авто
+
     public function index()
     {
         $cars = Car::with('details')->get();
@@ -19,7 +19,6 @@ class CarController extends Controller
         ], 200);
     }
 
-// Виводть дані про конкретне авто
     public function show($id)
     {
         $car = Car::with('details')->where('NumberPlate', $id)->first();
@@ -31,7 +30,6 @@ class CarController extends Controller
         return response()->json($car, 200);
     }
 
-    // Додавання нового авто
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -55,7 +53,6 @@ class CarController extends Controller
         ], 201);
     }
 
-    //Редагування інформації про авто
     public function update(Request $request, $id)
     {
         $car = Car::where('NumberPlate', $id)->first();
@@ -72,7 +69,6 @@ class CarController extends Controller
         ], 200);
     }
 
-    // Видалення авто
     public function destroy($id)
     {
         $car = Car::where('NumberPlate', $id)->first();

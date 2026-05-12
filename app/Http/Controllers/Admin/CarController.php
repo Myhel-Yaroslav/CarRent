@@ -14,7 +14,13 @@ class CarController extends Controller
             'total' => Car::count(), 
             'available' => Car::where('Status', 'Available')->count()
         ];
-        return view('admin.dashboard', compact('stats'));
+        
+        $activeReservations = \App\Models\Reservation::with(['user', 'car.details'])
+            ->where('Status', 'Active')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('admin.dashboard', compact('stats', 'activeReservations'));
     }
 
     public function index() {
